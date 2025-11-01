@@ -1,0 +1,67 @@
+---
+// About Page for Optimus-LAB
+import Layout from "../layouts/Layout.astro";
+import AboutHeader from "../components/AboutHeader.astro";
+import AboutHistory from "../components/AboutHistory.astro";
+import AboutMissionVisionValues from "../components/AboutMissionVisionValues.astro";
+import AboutInfrastructure from "../components/AboutInfrastructure.astro";
+import AboutCertifications from "../components/AboutCertifications.astro";
+import AboutCommitment from "../components/AboutCommitment.astro";
+import AboutCTA from "../components/AboutCTA.astro";
+
+// ==========================
+// 🔧 CONFIGURACIÓN / VARIABLES
+// ==========================
+const siteName = "Optimus-LAB";
+const tagline = "Innovación y precisión en diagnóstico clínico";
+const description =
+  "Optimus-LAB es un laboratorio clínico comprometido con la excelencia, tecnología avanzada y resultados confiables. Nuestro propósito es ofrecer diagnósticos precisos que respalden decisiones médicas seguras y oportunas.";
+
+const heroImage = "/images/hero-about.jpg";
+const aboutImage = "/images/about-lab.jpg";
+
+// Misión, Visión y Valores
+const mission =
+  "Brindar servicios de diagnóstico clínico de alta calidad, utilizando tecnología moderna y personal especializado, con el compromiso de contribuir a la salud de nuestros pacientes.";
+const vision =
+  "Ser reconocidos como el laboratorio líder en innovación, precisión y excelencia en diagnóstico clínico a nivel nacional.";
+const values = [
+  {
+    name: "Calidad",
+    desc: "Garantizamos resultados precisos mediante procesos controlados y tecnología de vanguardia.",
+  },
+  {
+    name: "Confianza",
+    desc: "Cumplimos con altos estándares éticos y científicos para asegurar la fiabilidad de nuestros resultados.",
+  },
+  {
+    name: "Innovación",
+    desc: "Incorporamos constantemente nuevas herramientas tecnológicas para mejorar la eficiencia y la precisión.",
+  },
+];
+
+// Compromiso con la calidad
+const highlights = [
+  { value: "+10", label: "Años de experiencia" },
+  { value: "+5000", label: "Pacientes atendidos" },
+  { value: "100%", label: "Resultados verificados" },
+  { value: "ISO", label: "Normas de calidad" },
+];
+
+// Infraestructura
+const infraImages = [
+  "/images/lab-area-1.jpg",
+  "/images/lab-area-2.jpg",
+  "/images/lab-area-3.jpg",
+];
+---
+
+<Layout title={`Sobre Nosotros - ${siteName}`} description={description}>
+<AboutHeader />
+<AboutHistory />
+<AboutMissionVisionValues />
+<AboutInfrastructure />
+<AboutCertifications />
+<AboutCommitment />
+<AboutCTA />
+</Layout>

@@ -1,0 +1,68 @@
+---
+const aboutHeaderData = {
+  title: "Quiénes somos",
+  subtitle: "Conoce la historia y el compromiso detrás de nuestro laboratorio clínico",
+};
+---
+
+<section class="relative overflow-hidden py-32 md:py-40 transition-colors duration-500 bg-[var(--bg-default)]">
+  <!-- Halo central animado -->
+  <div
+    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full
+           bg-[rgba(var(--color-primary-rgb),0.08)] dark:bg-[rgba(var(--color-primary-rgb),0.25)]
+           blur-3xl animate-[pulseGradient_15s_ease-in-out_infinite] -z-10"
+  ></div>
+
+  <!-- Partículas difusas -->
+  <div
+    class="absolute top-1/4 left-1/3 w-48 h-48 rounded-full bg-[rgba(var(--color-primary-rgb),0.05)]
+           dark:bg-[rgba(var(--color-primary-rgb),0.15)] blur-2xl animate-[pulseGradient_12s_ease-in-out_infinite] -z-10"
+  ></div>
+  <div
+    class="absolute bottom-1/4 right-1/4 w-64 h-64 rounded-full bg-[rgba(var(--color-primary-rgb),0.04)]
+           dark:bg-[rgba(var(--color-primary-rgb),0.12)] blur-3xl animate-[pulseGradient_18s_ease-in-out_infinite] -z-10"
+  ></div>
+
+  <!-- Contenedor principal -->
+  <div class="container mx-auto text-center relative z-10 px-4">
+    <h1
+      class="text-5xl md:text-6xl font-extrabold text-[var(--text-default)] leading-tight fade-up"
+    >
+      {aboutHeaderData.title}
+    </h1>
+
+    <p
+      class="mt-6 text-lg sm:text-xl text-[var(--muted)] max-w-3xl mx-auto fade-up"
+      style="animation-delay: 150ms"
+    >
+      {aboutHeaderData.subtitle}
+    </p>
+
+    <!-- Línea decorativa animada -->
+    <div class="mt-10 w-32 h-1 mx-auto rounded-full overflow-hidden relative">
+      <div class="absolute inset-0 w-full h-full bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-primary-600)]
+                 animate-[slideGradient_3s_linear_infinite]"></div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Animaciones de entrada */
+  @keyframes fadeUp {
+    0% { opacity: 0; transform: translateY(40px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  .fade-up { opacity: 0; animation: fadeUp 1s ease forwards; }
+
+  /* Halo difuso pulsante */
+  @keyframes pulseGradient {
+    0%,100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.05); opacity: 0.85; }
+  }
+
+  /* Línea decorativa animada */
+  @keyframes slideGradient {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+</style>

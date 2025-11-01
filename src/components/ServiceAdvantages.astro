@@ -1,0 +1,60 @@
+---
+import { Shield, HeartPulse, FlaskConical, Users } from "lucide-react";
+
+const advantages = [
+  {
+    icon: Shield,
+    title: "Seguridad y confianza",
+    description:
+      "Tus resultados están protegidos con los más altos estándares de confidencialidad y respaldo digital."
+  },
+  {
+    icon: HeartPulse,
+    title: "Atención personalizada",
+    description:
+      "Nuestro equipo humano te acompaña en cada paso para garantizar una experiencia cálida y profesional."
+  },
+  {
+    icon: FlaskConical,
+    title: "Tecnología de laboratorio avanzada",
+    description:
+      "Equipos modernos que aseguran precisión y rapidez en cada prueba diagnóstica."
+  },
+  {
+    icon: Users,
+    title: "Profesionales certificados",
+    description:
+      "Contamos con especialistas altamente calificados comprometidos con tu salud."
+  }
+];
+---
+
+<section class="py-20 bg-gradient-to-b from-white via-gray-50 to-gray-100 dark:from-gray-900 dark:via-gray-950 dark:to-gray-900 transition-colors duration-500">
+  <div class="container text-center">
+    <h2 class="text-3xl sm:text-4xl font-bold mb-12 text-gray-900 dark:text-gray-100 transition-colors">
+      ¿Por qué elegirnos?
+    </h2>
+
+    <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+      {advantages.map(({ icon: Icon, title, description }) => (
+        <div
+          class="card group hover:shadow-xl hover:-translate-y-1 fade-up transition-all duration-300 border border-gray-100 dark:border-gray-800"
+        >
+          <div class="flex flex-col items-center text-center space-y-4">
+            <div
+              class="w-16 h-16 flex items-center justify-center rounded-full bg-[rgba(var(--color-primary-rgb),0.1)] dark:bg-[rgba(var(--color-primary-rgb),0.15)] text-[var(--color-primary)] group-hover:bg-[var(--color-primary)] group-hover:text-white transition-all duration-300"
+            >
+              <Icon className="w-8 h-8" />
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100 transition-colors">
+              {title}
+            </h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed max-w-xs transition-colors">
+              {description}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

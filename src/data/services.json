@@ -1,0 +1,70 @@
+{
+  "services": [
+    {
+      "id": "quimica-sanguinea",
+      "name": "Química Sanguínea",
+      "description": "Evaluación de componentes químicos en sangre para monitorear órganos y metabolismo.",
+      "exams": [
+        { "id": "glucosa", "name": "Glucosa", "description": "Mide los niveles de azúcar en la sangre para detectar diabetes o hipoglucemia.", "price": 15.0 },
+        { "id": "perfil-lipidico", "name": "Perfil Lipídico", "description": "Incluye colesterol total, HDL, LDL y triglicéridos para evaluar riesgo cardiovascular.", "price": 30.0 },
+        { "id": "perfil-hepatico", "name": "Perfil Hepático", "description": "Analiza funciones del hígado mediante enzimas y bilirrubina.", "price": 25.0 },
+        { "id": "perfil-renal", "name": "Perfil Renal", "description": "Evalúa la función de los riñones midiendo creatinina, urea y electrolitos.", "price": 28.0 },
+        { "id": "acido-urico", "name": "Ácido Úrico", "description": "Detecta niveles altos de ácido úrico relacionados con gota o problemas renales.", "price": 18.0 },
+        { "id": "enzimas-cardiacas", "name": "Enzimas Cardíacas", "description": "Permite evaluar daño al músculo cardíaco, útil en casos de infarto.", "price": 35.0 }
+      ]
+    },
+    {
+      "id": "hematologia",
+      "name": "Hematología",
+      "description": "Estudio de sangre y componentes celulares para diagnóstico de enfermedades hematológicas.",
+      "exams": [
+        { "id": "hemograma", "name": "Hemograma Completo", "description": "Cuenta de glóbulos rojos, blancos y plaquetas, incluyendo índices hematimétricos.", "price": 20.0 },
+        { "id": "coagulacion", "name": "Pruebas de Coagulación", "description": "PT, PTT y tiempo de sangrado para evaluar coagulación sanguínea.", "price": 18.0 },
+        { "id": "frotis-sanguineo", "name": "Frotis Sanguíneo", "description": "Examen microscópico para identificar morfología de células sanguíneas.", "price": 22.0 }
+      ]
+    },
+    {
+      "id": "uroanalisis",
+      "name": "Uroanálisis",
+      "description": "Examen completo de orina para detectar infecciones, enfermedades renales y metabólicas.",
+      "exams": [
+        { "id": "examen-orina", "name": "Examen de Orina", "description": "Análisis físico, químico y microscópico de la orina.", "price": 12.0 },
+        { "id": "urocultivo", "name": "Urocultivo", "description": "Detecta y cuantifica bacterias en la orina para diagnóstico de infecciones urinarias.", "price": 28.0 },
+        { "id": "prueba-embarazo", "name": "Prueba de Embarazo", "description": "Detección rápida de embarazo mediante análisis de orina.", "price": 10.0 }
+      ]
+    },
+    {
+      "id": "parasitologia-microbiologia",
+      "name": "Parasitología y Microbiología",
+      "description": "Detección de parásitos, bacterias y hongos mediante exámenes de heces, cultivos y otros fluidos.",
+      "exams": [
+        { "id": "coprologico", "name": "Examen Coprológico", "description": "Identifica protozoarios, helmintos y otros parásitos intestinales.", "price": 20.0 },
+        { "id": "urocoprologico", "name": "Urocultivo y Coprocultivo", "description": "Cultivo de orina y heces para identificar bacterias y hongos.", "price": 30.0 },
+        { "id": "frotis-parasitario", "name": "Frotis Parasitario", "description": "Examen microscópico para detectar parásitos sanguíneos.", "price": 18.0 }
+      ]
+    },
+    {
+      "id": "serologia-inmunologia",
+      "name": "Serología e Inmunología",
+      "description": "Detección de anticuerpos y antígenos para enfermedades infecciosas e inmunológicas.",
+      "exams": [
+        { "id": "vih", "name": "Prueba VIH", "description": "Detección de anticuerpos VIH en sangre para diagnóstico temprano.", "price": 22.0 },
+        { "id": "hepatitis-b", "name": "Prueba Hepatitis B", "description": "Detección de antígeno y anticuerpos de Hepatitis B.", "price": 20.0 },
+        { "id": "hepatitis-c", "name": "Prueba Hepatitis C", "description": "Detección de anticuerpos de Hepatitis C.", "price": 20.0 },
+        { "id": "vdrl", "name": "Prueba Sífilis (VDRL)", "description": "Detección de sífilis mediante prueba serológica rápida.", "price": 18.0 }
+      ]
+    },
+    {
+      "id": "pruebas-especiales",
+      "name": "Pruebas Especiales",
+      "description": "Exámenes especializados que requieren tecnología avanzada para diagnóstico detallado.",
+      "exams": [
+        { "id": "hormonas-tiroides", "name": "Hormonas Tiroides", "description": "Medición de T3, T4 y TSH para evaluar función tiroidea.", "price": 35.0 },
+        { "id": "hormonas-sexuales", "name": "Hormonas Sexuales", "description": "Medición de estrógenos, progesterona y testosterona.", "price": 40.0 },
+        { "id": "vitaminas", "name": "Vitaminas y Minerales", "description": "Evaluación de niveles de vitaminas y minerales esenciales.", "price": 30.0 },
+        { "id": "marcadores-tumorales", "name": "Marcadores Tumorales", "description": "Detección de proteínas indicativas de ciertos tipos de cáncer.", "price": 45.0 },
+        { "id": "pruebas-geneticas", "name": "Pruebas Genéticas", "description": "Análisis de ADN para detectar predisposición a enfermedades.", "price": 60.0 }
+      ]
+    }
+  ]
+}

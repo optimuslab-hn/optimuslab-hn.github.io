@@ -1,0 +1,108 @@
+---
+const doctorHeaderData = {
+  title: "Conoce a Nuestros Especialistas",
+  subtitle:
+    "Un equipo médico comprometido con tu bienestar. Profesionales de confianza que combinan experiencia, tecnología y atención humana.",
+  buttonText: "Ver todos los doctores",
+  buttonLink: "/doctors",
+  image: "../../public/images/blog1.png",
+};
+---
+
+<section class="relative overflow-hidden py-20 md:py-20 bg-gradient-to-b from-white via-gray-50 to-gray-100 dark:from-gray-900 dark:via-gray-950 dark:to-gray-900 transition-colors duration-700">
+  <!-- 🔵 Fondo animado sutil -->
+  <div class="absolute inset-0 -z-10">
+    <div class="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] rounded-full bg-[rgba(var(--color-primary-rgb),0.15)] blur-3xl animate-slowPulse"></div>
+    <div class="absolute bottom-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full bg-[rgba(var(--color-primary-rgb),0.1)] blur-3xl animate-slowFloat"></div>
+  </div>
+
+  <div class="container flex flex-col-reverse md:flex-row items-center gap-12 relative z-10">
+    <!-- 🩺 Texto principal -->
+    <div class="flex-1 text-center md:text-left fade-up space-y-6">
+      <span class="inline-block text-sm font-semibold uppercase tracking-wider text-[var(--color-primary)] dark:text-[var(--color-primary-600)] bg-[rgba(var(--color-primary-rgb),0.1)] dark:bg-[rgba(var(--color-primary-rgb),0.2)] px-4 py-1 rounded-full">
+        Nuestro equipo médico
+      </span>
+
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight text-gray-900 dark:text-gray-100">
+        {doctorHeaderData.title}
+      </h1>
+
+      <p class="text-lg text-gray-600 dark:text-gray-400 max-w-lg mx-auto md:mx-0 leading-relaxed">
+        {doctorHeaderData.subtitle}
+      </p>
+
+      <div class="pt-4">
+        <a
+          href={doctorHeaderData.buttonLink}
+          class="btn-primary inline-flex items-center gap-2 group shadow-lg hover:shadow-[0_0_25px_rgba(var(--color-primary-rgb),0.4)]"
+        >
+          {doctorHeaderData.buttonText}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-5 h-5 group-hover:translate-x-1 transition-transform"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M17 8l4 4m0 0l-4 4m4-4H3"
+            />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- 🧑‍⚕️ Imagen del doctor -->
+    <div class="flex-1 relative flex justify-center items-center">
+      <div class="absolute w-[380px] h-[380px] md:w-[500px] md:h-[500px] rounded-full bg-gradient-to-tr from-[rgba(var(--color-primary-rgb),0.25)] via-transparent to-[rgba(var(--color-primary-rgb),0.15)] dark:from-[rgba(var(--color-primary-rgb),0.3)] dark:to-[rgba(var(--color-primary-rgb),0.1)] blur-2xl animate-pulseGlow -z-10"></div>
+
+      <img
+        src={doctorHeaderData.image}
+        alt="Equipo médico profesional"
+        class="w-full max-w-md md:max-w-lg rounded-2xl shadow-2xl animate-floatSoft"
+        loading="lazy"
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes slowPulse {
+    0%, 100% { opacity: 0.7; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.1); }
+  }
+
+  @keyframes slowFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+
+  @keyframes floatSoft {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes pulseGlow {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 0.9; }
+  }
+
+  .animate-slowPulse {
+    animation: slowPulse 8s ease-in-out infinite;
+  }
+
+  .animate-slowFloat {
+    animation: slowFloat 10s ease-in-out infinite;
+  }
+
+  .animate-floatSoft {
+    animation: floatSoft 6s ease-in-out infinite;
+  }
+
+  .animate-pulseGlow {
+    animation: pulseGlow 7s ease-in-out infinite;
+  }
+</style>

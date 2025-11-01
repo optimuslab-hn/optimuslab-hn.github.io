@@ -1,0 +1,136 @@
+---
+const services = [
+  {
+    name: "Química Sanguínea",
+    description: "Exámenes de bioquímica clínica para un diagnóstico preciso.",
+    icon: "../../public/images/service1.png",
+    exams: [
+      { name: "Glucosa", delivery: "24h", requirements: "Ayuno 8h", price: "$15" },
+      { name: "Colesterol Total", delivery: "24h", requirements: "Ayuno 8h", price: "$20" },
+      { name: "Triglicéridos", delivery: "24h", requirements: "Ayuno 8h", price: "$18" },
+      { name: "Creatinina", delivery: "24h", requirements: "Ayuno 8h", price: "$17" },
+      { name: "Urea", delivery: "24h", requirements: "Ayuno 8h", price: "$14" },
+    ],
+  },
+  {
+    name: "Hormonas",
+    description: "Monitoreo hormonal preciso para tu bienestar integral.",
+    icon: "../../public/images/service2.png",
+    exams: [
+      { name: "T3", delivery: "24h", requirements: "Ayuno 8h", price: "$25" },
+      { name: "T4", delivery: "24h", requirements: "Ayuno 8h", price: "$25" },
+      { name: "TSH", delivery: "24h", requirements: "Ayuno 8h", price: "$30" },
+      { name: "Progesterona", delivery: "24h", requirements: "Ayuno 8h", price: "$28" },
+      { name: "Estrógeno", delivery: "24h", requirements: "Ayuno 8h", price: "$28" },
+    ],
+  },
+  {
+    name: "Orina",
+    description: "Análisis de orina rápidos y confiables.",
+    icon: "../../public/images/service3.png",
+    exams: [
+      { name: "EGO", delivery: "24h", requirements: "Muestra limpia", price: "$12" },
+      { name: "Proteínas", delivery: "24h", requirements: "Muestra limpia", price: "$10" },
+      { name: "Glucosa", delivery: "24h", requirements: "Muestra limpia", price: "$10" },
+      { name: "Bacteriología", delivery: "24h", requirements: "Muestra limpia", price: "$15" },
+    ],
+  },
+  {
+    name: "Microbiología",
+    description: "Detección y análisis de microorganismos en diferentes muestras.",
+    icon: "../../public/images/service1.png",
+    exams: [
+      { name: "Hemocultivo", delivery: "48h", requirements: "Ayuno 8h", price: "$35" },
+      { name: "Urocultivo", delivery: "24h", requirements: "Muestra limpia", price: "$25" },
+      { name: "Coprocultivo", delivery: "48h", requirements: "Muestra reciente", price: "$28" },
+    ],
+  },
+  {
+    name: "Especiales",
+    description: "Pruebas especializadas según necesidades específicas de salud.",
+    icon: "../../public/images/service2.png",
+    exams: [
+      { name: "Prueba de alergias", delivery: "72h", requirements: "Evitar antihistamínicos", price: "$60" },
+      { name: "Marcadores tumorales", delivery: "48h", requirements: "Ayuno 8h", price: "$80" },
+      { name: "Vitaminas y minerales", delivery: "24h", requirements: "Ayuno 8h", price: "$50" },
+    ],
+  },
+];
+---
+<section class="py-16 px-6 bg-gray-50 dark:bg-gray-900">
+  <!-- Encabezado general -->
+  <div class="max-w-6xl mx-auto text-center mb-12">
+    <h2 class="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white mb-4">
+      <span class="text-gray-900 dark:text-white">Nuestros </span>
+      <span class="text-[var(--color-primary)]">Servicios</span>
+    </h2>
+    <p class="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+      Descubre todos los servicios de laboratorio que ofrecemos, con detalles de cada examen, requisitos, tiempo de entrega y precios.
+    </p>
+  </div>
+
+  <!-- Tarjetas de servicios -->
+  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    {services.map(service => (
+      <div class="service-card opacity-0 transform translate-y-12 bg-white dark:bg-gray-800 rounded-[var(--radius-lg)] shadow-lg p-6 flex flex-col transition-transform duration-500 hover:scale-105 hover:shadow-2xl">
+        
+        <!-- Icono -->
+        {service.icon && (
+          <div class="w-24 h-24 mb-4 mx-auto">
+            <img src={service.icon} alt={`Icono ${service.name}`} class="w-full h-full object-contain"/>
+          </div>
+        )}
+
+        <!-- Nombre del servicio -->
+        <h3 class="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-white mb-2 text-center transition-colors duration-300 hover:text-[var(--color-primary)]">
+          {service.name}
+        </h3>
+
+        <!-- Descripción -->
+        <p class="text-gray-600 dark:text-gray-300 mb-4 text-center">
+          {service.description}
+        </p>
+
+        <!-- Lista de exámenes con acordeón animado -->
+        <div class="space-y-2 mt-2">
+          {service.exams.map(exam => (
+            <details class="group border-t border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden transition-shadow duration-300 hover:shadow-md">
+              <summary class="cursor-pointer flex justify-between items-center p-3 font-medium text-gray-800 dark:text-gray-200 transition-colors duration-300 group-hover:text-[var(--color-primary)]">
+                <span>{exam.name}</span>
+                <svg class="w-5 h-5 transform transition-transform duration-300 group-open:rotate-180 text-[var(--color-primary)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </summary>
+              <div class="p-3 text-gray-600 dark:text-gray-300 border-t border-gray-100 dark:border-gray-700 space-y-1 transition-all duration-300 ease-in-out bg-gray-50 dark:bg-gray-900">
+                <p><strong>Tiempo de entrega:</strong> {exam.delivery}</p>
+                <p><strong>Requisitos:</strong> {exam.requirements}</p>
+                <p><strong>Precio:</strong> {exam.price}</p>
+              </div>
+            </details>
+          ))}
+        </div>
+
+        <!-- Botón de acción -->
+        <a href="/contact" 
+           class="mt-4 inline-block text-center px-6 py-3 bg-[var(--color-primary)] text-white rounded-[var(--radius-lg)] font-semibold shadow-lg transition-transform duration-300 hover:scale-105 hover:bg-[var(--color-primary)/90]">
+          Solicitar cita
+        </a>
+      </div>
+    ))}
+  </div>
+
+  <script is:inline>
+    document.addEventListener("DOMContentLoaded", () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if(entry.isIntersecting) {
+            entry.target.classList.add("opacity-100", "translate-y-0");
+            entry.target.classList.remove("opacity-0", "translate-y-12");
+          }
+        });
+      }, { threshold: 0.2 });
+
+      document.querySelectorAll(".service-card").forEach(card => observer.observe(card));
+    });
+  </script>
+</section>

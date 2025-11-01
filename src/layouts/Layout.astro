@@ -1,22 +1,122 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
-</html>
+---
+/**
+ * Layout.astro
+ *
+ * Plantilla base del sitio web de OPTIMUS-LAB.
+ * Incluye SEO, Header, Footer y carga de estilos globales.
+ */
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const {
+  title = "OPTIMUS-LAB | Laboratorio Clínico",
+  description = "OPTIMUS-LAB | Laboratorio clínico profesional con servicios de diagnóstico, pruebas de sangre, química clínica, hematología, y más. Resultados confiables y atención de calidad.",
+  author = "Walter Jehovanny Carranza Maradiaga",
+  lang = "es",
+  keywords = "laboratorio clínico, análisis clínicos, exámenes de laboratorio, diagnóstico médico, pruebas de sangre, química clínica, hematología, OPTIMUS-LAB, salud, resultados confiables, laboratorio profesional, análisis de orina, pruebas COVID, biología molecular",
+  siteName = "OPTIMUS-LAB",
+  themeColor = "#004aad",
+  ogImage = "/images/og-image.png",
+  ogUrl = "https://www.optimuslab.com",
+  twitterUser = "@OptimusLab",
+  geoRegion = "HN-FM",
+  geoPosition = "14.0818;-87.2068",
+  geoPlaceName = "OptimusLab, Tegucigalpa, Honduras",
+} = Astro.props || {};
+
+const metaTitle = title;
+const canonical = ogUrl || undefined;
+---
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <!-- Básico -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{metaTitle}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="author" content={author} />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content={themeColor} />
+
+    <!-- Canonical (solo si se pasa ogUrl / canonical) -->
+    {canonical && <link rel="canonical" href={canonical} />}
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={metaTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_HN" />
+    <meta property="og:site_name" content={siteName} />
+    {ogUrl && <meta property="og:url" content={ogUrl} />}
+    <meta property="og:image" content={ogImage} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content={twitterUser} />
+    <meta name="twitter:title" content={metaTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Favicons / manifest -->
+    <link rel="icon" type="image/x-icon" href="/public/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="mask-icon" href="/favicon.svg" color={themeColor} />
+    <meta name="msapplication-TileColor" content={themeColor} />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Preconnect para Google Fonts (activar si usas Google Fonts en global.css) -->
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /> -->
+
+    <!-- JSON-LD Organization (mínimo) -->
+    <script type="application/ld+json">
+      {JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "MedicalBusiness",
+        "name": "OptimusLab",
+        "url": "https://www.optimuslab.com",
+        "logo": "https://www.optimuslab.com/assets/og-default.png",
+        "telephone": "+504-0000-0000",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Calle Principal #123",
+          "addressLocality": "Tegucigalpa",
+          "addressRegion": "FM",
+          "postalCode": "11101",
+          "addressCountry": "HN"
+        },
+        "openingHours": "Mo-Fr 08:00-17:00",
+        "sameAs": [
+          "https://www.facebook.com/optimuslab",
+          "https://www.instagram.com/optimuslab"
+        ]
+      })}
+    </script>
+
+    <!-- Etiquetas adicionales -->
+    <meta name="application-name" content={siteName} />
+    <meta name="apple-mobile-web-app-title" content={siteName} />
+    <meta name="format-detection" content="telephone=no" />
+  </head>
+
+  <body class="min-h-screen flex flex-col bg-white text-gray-800 font-sans antialiased">
+    <!-- Recomendado: añadir skip link desde Header (accesibilidad) -->
+
+    <Header />
+
+    <main id="main-content" class="flex-1">
+      <slot />
+    </main>
+
+    <Footer />
+
+    <!-- Script cliente principal (dejar presente para comportamiento: menú, carousel...) -->
+    <!-- <script type="module" src="/scripts/main.js" defer></script> -->
+  </body>
+</html>

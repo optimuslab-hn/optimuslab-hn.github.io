@@ -1,0 +1,44 @@
+---
+const categories = ["Sangre", "Orina", "Hormonas", "Microbiología", "Especiales"];
+---
+<section class="py-16 px-6 bg-white dark:bg-gray-900">
+  <div class="max-w-5xl mx-auto flex flex-wrap justify-center gap-4">
+    {categories.map((category) => (
+      <button
+        class="category-btn px-5 py-2 rounded-full font-semibold transition-all duration-300"
+        data-category={category}
+      >
+        {category}
+      </button>
+    ))}
+  </div>
+
+  <script is:inline>
+    const buttons = document.querySelectorAll(".category-btn");
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        buttons.forEach((b) => b.classList.remove("bg-[var(--color-primary)]","text-white","shadow-lg","scale-105"));
+        buttons.forEach((b) => b.classList.add("bg-gray-100","dark:bg-gray-800","text-gray-700","dark:text-gray-200"));
+        // Activar el botón clickeado
+        btn.classList.add("bg-[var(--color-primary)]","text-white","shadow-lg","scale-105");
+        btn.classList.remove("bg-gray-100","dark:bg-gray-800","text-gray-700","dark:text-gray-200");
+      });
+
+      // Hover
+      btn.addEventListener("mouseenter", () => {
+        if(!btn.classList.contains("bg-[var(--color-primary)]")) {
+          btn.classList.add("hover:bg-[var(--color-primary)/10]","hover:text-[var(--color-primary)]");
+        }
+      });
+      btn.addEventListener("mouseleave", () => {
+        btn.classList.remove("hover:bg-[var(--color-primary)/10]","hover:text-[var(--color-primary)]");
+      });
+    });
+
+    // Inicializar primer botón activo
+    if(buttons.length) {
+      buttons[0].classList.add("bg-[var(--color-primary)]","text-white","shadow-lg","scale-105");
+      buttons[0].classList.remove("bg-gray-100","dark:bg-gray-800","text-gray-700","dark:text-gray-200");
+    }
+  </script>
+</section>

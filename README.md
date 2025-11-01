@@ -1,46 +1,58 @@
-# Astro Starter Kit: Basics
+# OptimusLab — Static site (Astro + Tailwind)
 
-```sh
-npm create astro@latest -- --template basics
+Sitio estático informativo para OptimusLab. Datos contenidos en JSON bajo `src/data/` para que el contenido se pueda actualizar sin tocar código; en el futuro se podrá cambiar la fuente a una API vía `src/services/dataClient.ts`.
+
+## Stack
+- Astro (SSG)
+- Tailwind CSS + PostCSS
+- TypeScript (opcional)
+- esbuild (para compilar scripts cliente)
+- Vitest / Playwright (tests sugeridos)
+
+## Requisitos
+- Node.js >= 18
+- npm o pnpm
+
+## Instalación
+```bash
+npm install
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Comandos
+- npm run dev        # Development server
+- npm run build      # Production build
+- npm run preview    # Preview build locally
+- npm run lint       # ESLint + Prettier (si configurado)
+- npm run test       # Vitest (si configurado)
+- npm run build:scripts # Compilar scripts cliente (esbuild) — opcional
 
-## 🚀 Project Structure
+## Estructura relevante
+- public/               -> assets estáticos (images, scripts compilados)
+- src/
+  - data/               -> JSON editable (services.json, doctors.json, promos.json)
+  - components/         -> UI components reutilizables
+  - layouts/            -> Layout.astro (SEO + Header/Footer)
+  - pages/              -> Rutas `.astro`
+  - services/           -> dataClient.ts (capa de abstracción para JSON / API)
+  - styles/             -> global.css (Tailwind imports)
+  - scripts/            -> source scripts TS/JS (build => public/scripts)
 
-Inside of your Astro project, you'll see the following folders and files:
+## Data-driven workflow
+- Edita `src/data/*.json` para cambiar contenido (no tocar vistas).
+- Las páginas usan `src/services/dataClient.ts` para leer JSON; en producción se podrá apuntar a una API cambiando una env var (API_URL).
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
+## Desarrollo y buenas prácticas
+- Nombres en inglés para archivos/variables.
+- Comentarios y docs en español.
+- Evitar atributos `key` en elementos HTML (Astro).
+- Mantener frontmatter `---` al inicio de cada `.astro`.
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## Contribuir
+1. Fork → branch feature/xxx → PR
+2. Ejecutar linters y tests antes de push
 
-## 🧞 Commands
+## Autor
+Walter Jehovanny Carranza Maradiaga — OptimusLab
 
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## Licencia
+MIT

@@ -1,0 +1,140 @@
+<section
+  id="hero"
+  class="relative overflow-hidden bg-[var(--bg-default)] text-[var(--text-default)] transition-colors duration-500"
+  aria-label="Sección principal de OptimusLab"
+>
+  <!-- FONDO MULTICAPA ANIMADO -->
+  <div class="absolute inset-0 -z-10 overflow-hidden">
+    <div
+      class="absolute inset-0 blur-3xl animate-[pulseGradient_12s_ease-in-out_infinite]"
+      style="background: radial-gradient(circle at center, rgba(var(--color-primary-rgb),0.25), transparent 70%);"
+    ></div>
+
+    <div
+      class="absolute top-1/2 left-1/2 w-[75rem] h-[75rem] rounded-full blur-[180px] animate-[slowSpin_60s_linear_infinite]"
+      style="background: radial-gradient(circle, rgba(var(--color-primary-rgb),0.5), transparent 70%); transform: translate(-50%, -50%);"
+    ></div>
+
+    <!-- Ondas dinámicas (se adaptan al tema) -->
+    <div
+      class="absolute inset-x-0 bottom-0 h-[55rem] opacity-60 
+             bg-[url('/waves/light.svg')] dark:bg-[url('/waves/dark.svg')]
+             bg-bottom bg-no-repeat animate-[waveShift_20s_linear_infinite]"
+    ></div>
+
+    <div
+      class="absolute inset-x-0 bottom-0 h-[55rem] opacity-50 
+             bg-[url('/waves/light2.svg')] dark:bg-[url('/waves/dark2.svg')]
+             bg-bottom bg-no-repeat animate-[waveShift_35s_linear_infinite_reverse]"
+    ></div>
+  </div>
+
+  <!-- CONTENIDO HERO -->
+  <div class="relative z-10 flex flex-col items-center text-center px-32 md:py-14 container">
+    <h1
+      class="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-extrabold tracking-tight leading-tight drop-shadow-md fade-up"
+      style="text-shadow: 0 4px 12px rgba(var(--color-primary-rgb),0.25);"
+    >
+      Innovación médica para un  
+      <span class="text-[var(--color-primary)]">diagnóstico preciso</span>
+    </h1>
+
+    <p
+      class="mt-6 max-w-2xl text-lg sm:text-xl leading-relaxed font-light text-[var(--muted)] fade-up delay-150"
+    >
+      En <strong class="font-semibold text-[var(--color-primary)]">OptimusLab</strong> combinamos ciencia, tecnología y calidez humana
+      para ofrecerte análisis clínicos confiables y resultados que cuidan de ti y tu familia.
+    </p>
+
+    <!-- Botones -->
+    <div class="mt-12 flex flex-col sm:flex-row items-center justify-center gap-6 fade-up delay-300">
+      <a
+        href="/services"
+        class="relative inline-block px-8 py-4 rounded-lg font-semibold btn-primary overflow-hidden transition-transform hover:-translate-y-1 hover:scale-[1.02] focus:outline-none"
+      >
+        <span class="relative z-10 text-white transition-colors duration-300">Nuestros Servicios</span>
+        <span
+          class="absolute inset-0 bg-gradient-to-r from-[var(--color-accent)] via-[var(--color-primary)] to-[var(--color-accent-strong)] opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+        ></span>
+        <span class="absolute inset-0 bg-[var(--color-primary)] opacity-100 group-hover:opacity-0 transition-opacity duration-500"></span>
+      </a>
+
+      <a
+        href="/contact"
+        class="relative inline-block px-8 py-4 rounded-lg font-semibold border-2 border-[var(--color-primary)] text-[var(--color-primary)] bg-transparent hover:bg-[var(--color-primary)] hover:text-white transition-all duration-300"
+      >
+        Agenda tu cita
+      </a>
+    </div>
+
+    <!-- Imagen central -->
+    <div class="relative mt-28 fade-up delay-500">
+      <div class="absolute inset-0 -z-10 rounded-full bg-gradient-to-t from-[var(--color-primary-bg)]/70 to-transparent blur-3xl"></div>
+      <img
+        src="/images/blog1.png"
+        alt="Científica de laboratorio observando muestras bajo microscopio"
+        class="mx-auto w-[22rem] sm:w-[28rem] md:w-[34rem] xl:w-[38rem] rounded-full 
+               shadow-[0_0_60px_rgba(var(--color-primary-rgb),0.3)] ring-4 ring-white/40 
+               transition-all duration-700 ease-out hover:scale-105 hover:rotate-1 
+               hover:shadow-[0_0_80px_rgba(var(--color-primary-rgb),0.4)]"
+        loading="eager"
+      />
+      <div class="absolute -bottom-10 left-1/2 -translate-x-1/2 w-2/3 h-8 bg-gradient-to-t from-[var(--color-primary-bg)]/60 to-transparent blur-2xl rounded-full"></div>
+    </div>
+  </div>
+
+  <!-- Gradiente inferior -->
+  <div class="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-[var(--bg-alt)] via-transparent to-transparent"></div>
+</section>
+
+<style>
+  @keyframes pulseGradient {
+    0%,100% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.07); opacity: 1; }
+  }
+  @keyframes waveShift {
+    0% { background-position-x: 0; }
+    100% { background-position-x: 1440px; }
+  }
+  @keyframes slowSpin {
+    from { transform: rotate(0deg) translate(-50%, -50%); }
+    to { transform: rotate(360deg) translate(-50%, -50%); }
+  }
+
+  /* Animaciones de entrada */
+  @keyframes fadeUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+      filter: blur(6px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+  }
+
+  .fade-up {
+    opacity: 0;
+    transform: translateY(20px);
+    filter: blur(6px);
+    transition: opacity 0.8s ease, transform 0.8s ease, filter 0.8s ease;
+  }
+  .fade-up.visible {
+    animation: fadeUp 1s ease forwards;
+  }
+</style>
+
+<script>
+  // Animación con IntersectionObserver para activar efectos en scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll(".fade-up").forEach(el => observer.observe(el));
+</script>

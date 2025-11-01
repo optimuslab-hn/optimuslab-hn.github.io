@@ -1,0 +1,115 @@
+---
+const philosophyData = {
+  mission: {
+    title: "Misión",
+    description:
+      "Brindar servicios de laboratorio clínico con excelencia, precisión y un enfoque humano, garantizando resultados confiables y oportunos para nuestros pacientes."
+  },
+  vision: {
+    title: "Visión",
+    description:
+      "Ser líderes en innovación y calidad en diagnóstico clínico, reconocidos por nuestra ética profesional y compromiso con la salud de la comunidad."
+  },
+  values: {
+    title: "Valores",
+    items: [
+      "Ética",
+      "Precisión",
+      "Empatía",
+      "Innovación",
+      "Responsabilidad"
+    ]
+  }
+};
+---
+
+<section class="relative py-28 md:py-36 transition-colors duration-500 overflow-hidden" style="background-color: var(--bg-philosophy);">
+  <!-- Halo difuso animado -->
+  <div
+    class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full opacity-10 dark:opacity-20 blur-3xl animate-[pulseGradient_16s_ease-in-out_infinite]"
+    style="background: rgba(var(--color-primary-rgb),0.15);"
+  ></div>
+
+  <!-- Partículas flotantes -->
+  <div class="absolute top-0 left-0 w-full h-full pointer-events-none">
+    {Array.from({ length: 8 }).map((_, i) => (
+      <div
+        class="absolute w-2 h-2 bg-[var(--color-primary)] rounded-full opacity-20 animate-[float_12s_linear_infinite]"
+        style={`top:${Math.random() * 100}%; left:${Math.random() * 100}%; animation-delay:${i*1.5}s`}
+      ></div>
+    ))}
+  </div>
+
+  <!-- Contenedor principal -->
+  <div class="container mx-auto px-4 relative z-10 text-center">
+    <!-- Encabezado -->
+    <div class="fade-up mb-16" style="animation-delay:0ms">
+      <h2 class="text-4xl sm:text-5xl font-extrabold text-[var(--text-default)] leading-tight">
+        Nuestra filosofía
+      </h2>
+      <p class="mt-4 text-lg sm:text-xl text-[var(--muted)] max-w-2xl mx-auto">
+        Lo que nos mueve y guía nuestro compromiso diario en el laboratorio.
+      </p>
+    </div>
+
+    <!-- Contenido: Misión, Visión, Valores -->
+    <div class="grid gap-12 md:grid-cols-3">
+      {/** Misión **/}
+      <div
+        class="fade-up bg-[var(--bg-default)] p-6 rounded-2xl shadow-md border border-[var(--color-primary)] transition-all duration-500 transform hover:-translate-y-2 hover:scale-105 hover:rotate-1 hover:shadow-xl"
+        style="animation-delay:100ms"
+      >
+        <h3 class="text-xl font-semibold text-[var(--color-primary)] mb-3">{philosophyData.mission.title}</h3>
+        <p class="text-[var(--text-default)]">{philosophyData.mission.description}</p>
+      </div>
+
+      {/** Visión **/}
+      <div
+        class="fade-up bg-[var(--bg-default)] p-6 rounded-2xl shadow-md border border-[var(--color-primary)] transition-all duration-500 transform hover:-translate-y-2 hover:scale-105 hover:-rotate-1 hover:shadow-xl"
+        style="animation-delay:200ms"
+      >
+        <h3 class="text-xl font-semibold text-[var(--color-primary)] mb-3">{philosophyData.vision.title}</h3>
+        <p class="text-[var(--text-default)]">{philosophyData.vision.description}</p>
+      </div>
+
+      {/** Valores **/}
+      <div
+        class="fade-up bg-[var(--bg-default)] p-6 rounded-2xl shadow-md border border-[var(--color-primary)] transition-all duration-500 transform hover:-translate-y-2 hover:scale-105 hover:rotate-1 hover:shadow-xl"
+        style="animation-delay:300ms"
+      >
+        <h3 class="text-xl font-semibold text-[var(--color-primary)] mb-3">{philosophyData.values.title}</h3>
+        <ul class="text-[var(--text-default)] space-y-2 list-disc list-inside">
+          {philosophyData.values.items.map((value) => (
+            <li>{value}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Tonos de sección distintos */
+  :root { --bg-philosophy: #f4f6f9; } /* modo claro */
+  html.dark { --bg-philosophy: #1d2937; } /* modo oscuro */
+
+  /* Animaciones fadeUp */
+  @keyframes fadeUp {
+    0% { opacity: 0; transform: translateY(40px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  .fade-up { opacity: 0; animation: fadeUp 1s ease forwards; }
+
+  /* Halo animado */
+  @keyframes pulseGradient {
+    0%,100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.05); opacity: 0.8; }
+  }
+
+  /* Partículas flotantes */
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+  }
+</style>

@@ -1,0 +1,30 @@
+---
+import Layout from "../layouts/Layout.astro";
+import servicesData from "../data/services.json";
+import ServicesHeader from "../components/ServicesHeader.astro";
+// import ServiceFilter from "../components/ServiceFilter.astro";
+import ServiceCard from "../components/ServiceCard.astro";
+import ServiceCTA from "../components/ServiceCTA.astro";
+import ServiceAdvantages from "../components/ServiceAdvantages.astro";
+
+// VENTAJAS
+const advantages = [
+  { icon: "🧪", title: "Precisión Garantizada", description: "Equipos certificados bajo normas internacionales de calidad." },
+  { icon: "⚡", title: "Resultados Rápidos", description: "Procesos automatizados para entregas en el menor tiempo posible." },
+  { icon: "👩‍⚕️", title: "Atención Profesional", description: "Nuestro personal está altamente capacitado para tu seguridad." },
+];
+
+---
+
+<Layout title="Servicios de Laboratorio | OptimusLab" description="Catálogo de análisis clínicos, química sanguínea, hematología y más. Resultados confiables para tu bienestar.">
+
+  <ServicesHeader />
+  <!-- <ServiceFilter /> -->
+
+  <ServiceCard />
+
+  <ServiceAdvantages {advantages} />
+
+  <ServiceCTA />
+
+</Layout>

@@ -1,0 +1,189 @@
+/* =================== Global Styles - Tailwind + Variables =================== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ====== Base Layer: tokens, accesibilidad y reset ligero ====== */
+@layer base {
+  /* Variables de modo claro */
+  :root {
+    --color-primary: #0f62fe;
+    --color-primary-600: #0b4bd6;
+    --color-primary-rgb: 15, 98, 254;
+
+    --bg-default: #ffffff;
+    --text-default: #111827;
+    --muted: #6b7280;
+    --radius-lg: 1rem;
+    --focus-ring: 0 0 0 4px rgba(15,98,254,0.12);
+  }
+
+  /* Variables de modo oscuro */
+  html.dark {
+    --color-primary: #3b82f6;
+    --color-primary-600: #1d4ed8;
+    --color-primary-rgb: 59, 130, 246;
+
+    --bg-default: #111827;
+    --text-default: #f9fafb;
+    --muted: #9ca3af;
+  }
+
+  /* Tipografía y estilo base */
+  html {
+    font-family: "Poppins", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-size-adjust: 100%;
+    scroll-behavior: smooth;
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  body {
+    background-color: var(--bg-default);
+    color: var(--text-default);
+    line-height: 1.5;
+    font-feature-settings: "liga" 1;
+    transition: background-color 0.4s ease, color 0.4s ease;
+  }
+
+  /* Enlaces */
+  a {
+    color: var(--color-primary);
+    text-decoration-skip-ink: auto;
+    transition: color 0.2s;
+  }
+  a:hover {
+    color: var(--color-primary-600);
+  }
+
+  /* Imágenes y medios */
+  img, video, picture {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Formularios */
+  input, textarea, select, button {
+    font-family: inherit;
+  }
+
+  /* Focus accesible */
+  :focus-visible {
+    outline: none;
+    box-shadow: var(--focus-ring);
+  }
+
+  /* Respeta preferencias de movimiento del usuario */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* ====== Component Layer: utilidades reutilizables ====== */
+@layer components {
+  .container {
+    @apply max-w-7xl mx-auto px-4;
+  }
+
+  .card {
+    @apply bg-[var(--bg-default)] rounded-2xl shadow p-6;
+    border-radius: var(--radius-lg);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* === BOTONES === */
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-5 py-2.5 rounded-lg font-semibold shadow-sm transition-all duration-300;
+    background-color: var(--color-primary);
+    color: #fff;
+  }
+
+  .btn-primary:hover {
+    background-color: var(--color-primary-600);
+    color: #fff; /* ✅ Asegura visibilidad del texto en modo claro */
+    transform: translateY(-2px) scale(1.02);
+  }
+
+  /* Variante transparente o con borde */
+  .btn-outline {
+    @apply inline-flex items-center justify-center px-5 py-2.5 rounded-lg border-2 font-medium transition-all duration-300;
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    background: transparent;
+  }
+
+  .btn-outline:hover {
+    background-color: var(--color-primary);
+    color: #fff;
+  }
+
+  .muted {
+    color: var(--muted);
+  }
+
+  /* === EFECTOS DE ENTRADA === */
+  @keyframes fadeUp {
+    0% { opacity: 0; transform: translateY(40px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-up {
+    opacity: 0;
+    animation: fadeUp 1s ease forwards;
+  }
+
+  @keyframes softBlur {
+    from { filter: blur(12px); opacity: 0; }
+    to { filter: blur(0); opacity: 1; }
+  }
+
+  .blur-in {
+    animation: softBlur 1.2s ease forwards;
+  }
+
+  /* Scroll reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* === Animaciones específicas === */
+  @keyframes pulseGradient {
+    0%, 100% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.07); opacity: 1; }
+  }
+
+  @keyframes waveShift {
+    0% { background-position-x: 0; }
+    100% { background-position-x: 1440px; }
+  }
+
+  @keyframes slowSpin {
+    from { transform: rotate(0deg) translate(-50%, -50%); }
+    to { transform: rotate(360deg) translate(-50%, -50%); }
+  }
+}
+
+/* ====== Utility Layer: transiciones suaves globales ====== */
+@layer utilities {
+  * {
+    transition-property: background-color, color, border-color, box-shadow, transform;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+  }
+}

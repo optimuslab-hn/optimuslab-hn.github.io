@@ -1,0 +1,125 @@
+---
+/**
+ * Página de Política de Privacidad - Optimus-LAB
+ *
+ * ✨ Instrucciones:
+ * Solo modifica las variables bajo la sección CONFIG / DATA.
+ * No es necesario tocar el HTML.
+ */
+import PrivacyHeader from "../components/PrivacyHeader.astro";
+import Layout from "../layouts/Layout.astro";
+import PrivacyList from "../components/PrivacyList.astro";
+import PrivacyLastUpdated from "../components/PrivacyLastUpdated.astro";
+import PrivacyCTA from "../components/PrivacyCTA.astro";
+
+// ==========================
+// 🔧 CONFIG / DATA
+// ==========================
+const siteName = "Optimus-LAB";
+const pageTitle = "Política de Privacidad";
+const pageDescription =
+  "Conoce cómo Optimus-LAB protege y utiliza tu información personal de manera segura y responsable.";
+const lastUpdated = "Octubre 2025";
+
+// Secciones de la política
+const privacySections = [
+  {
+    title: "1. Introducción",
+    content: `
+      En ${siteName}, valoramos tu privacidad y nos comprometemos a proteger la información personal que compartes con nosotros. 
+      Esta política explica cómo recopilamos, usamos y protegemos tus datos personales al interactuar con nuestro sitio web y nuestros servicios de laboratorio clínico.
+    `,
+  },
+  {
+    title: "2. Información que Recopilamos",
+    content: `
+      Podemos recopilar la siguiente información personal:
+      <ul class="list-disc list-inside mt-2 space-y-1">
+        <li>Nombre completo y datos de contacto (correo electrónico, teléfono).</li>
+        <li>Información relacionada con tus solicitudes o citas.</li>
+        <li>Datos médicos o clínicos necesarios para la prestación de servicios (cuando corresponda).</li>
+        <li>Datos técnicos: dirección IP, tipo de navegador, dispositivo y páginas visitadas.</li>
+      </ul>
+    `,
+  },
+  {
+    title: "3. Uso de la Información",
+    content: `
+      La información recopilada se utiliza únicamente para fines relacionados con:
+      <ul class="list-disc list-inside mt-2 space-y-1">
+        <li>Proveer y mejorar nuestros servicios de laboratorio.</li>
+        <li>Gestionar citas, resultados y comunicación con los pacientes.</li>
+        <li>Enviar notificaciones, recordatorios o información relevante (previo consentimiento).</li>
+        <li>Cumplir con obligaciones legales y regulatorias.</li>
+      </ul>
+    `,
+  },
+  {
+    title: "4. Protección de los Datos",
+    content: `
+      Implementamos medidas de seguridad técnicas y organizativas para proteger los datos personales frente a accesos no autorizados, pérdida o alteración. 
+      El acceso a la información está restringido únicamente al personal autorizado y capacitado en el manejo responsable de datos.
+    `,
+  },
+  {
+    title: "5. Compartición de la Información",
+    content: `
+      ${siteName} no comparte información personal con terceros, salvo cuando:
+      <ul class="list-disc list-inside mt-2 space-y-1">
+        <li>Sea necesario para cumplir una obligación legal.</li>
+        <li>El usuario haya otorgado su consentimiento explícito.</li>
+        <li>Sea requerido para la correcta prestación de un servicio específico (por ejemplo, envío de resultados médicos).</li>
+      </ul>
+    `,
+  },
+  {
+    title: "6. Cookies y Tecnologías Similares",
+    content: `
+      Este sitio utiliza cookies y herramientas de análisis para mejorar la experiencia del usuario y obtener estadísticas de uso. 
+      Puedes configurar tu navegador para rechazar cookies, pero esto puede afectar el correcto funcionamiento de algunas secciones del sitio.
+    `,
+  },
+  {
+    title: "7. Derechos del Usuario",
+    content: `
+      Como titular de los datos, tienes derecho a:
+      <ul class="list-disc list-inside mt-2 space-y-1">
+        <li>Acceder, rectificar o eliminar tu información personal.</li>
+        <li>Retirar tu consentimiento en cualquier momento.</li>
+        <li>Solicitar la limitación u oposición al tratamiento de tus datos.</li>
+      </ul>
+      Para ejercer estos derechos, comunícate con nosotros mediante nuestro formulario de contacto o enviando un correo a 
+      <a href="mailto:info@optimuslab.com" class="text-blue-600 underline hover:text-blue-800">info@optimuslab.com</a>.
+    `,
+  },
+  {
+    title: "8. Enlaces a Otros Sitios",
+    content: `
+      Nuestro sitio puede incluir enlaces a páginas externas. ${siteName} no se responsabiliza por las prácticas de privacidad ni por el contenido de dichos sitios. 
+      Se recomienda leer las políticas de privacidad correspondientes al visitar sitios externos.
+    `,
+  },
+  {
+    title: "9. Cambios en esta Política",
+    content: `
+      ${siteName} se reserva el derecho de actualizar o modificar esta Política de Privacidad en cualquier momento. 
+      Cualquier cambio será publicado en esta página con la fecha de actualización correspondiente.
+    `,
+  },
+  {
+    title: "10. Contacto",
+    content: `
+      Si tienes preguntas, inquietudes o solicitudes relacionadas con esta política, puedes contactarnos al correo 
+      <a href="mailto:info@optimuslab.com" class="text-blue-600 underline hover:text-blue-800">info@optimuslab.com</a> 
+      o a través del formulario de contacto en nuestro sitio web.
+    `,
+  },
+];
+---
+
+<Layout title={`${pageTitle} - ${siteName}`} description={pageDescription}>
+<PrivacyHeader />
+<PrivacyList />
+<PrivacyLastUpdated />
+<PrivacyCTA />
+</Layout>

@@ -1,0 +1,79 @@
+---
+const commitmentData = {
+  title: "Nuestro compromiso contigo",
+  subtitle: "En nuestro laboratorio, cada paciente es nuestra prioridad. Garantizamos atención cálida, profesional y resultados confiables.",
+  points: [
+    "Filosofía de atención centrada en el paciente",
+    "Resultados confiables y rápidos",
+    "Profesionales altamente capacitados"
+  ],
+  buttonText: "Contáctanos",
+  buttonLink: "/contacto"
+};
+---
+
+<section class="relative py-28 md:py-36 transition-colors duration-500 overflow-hidden" style="background-color: var(--bg-commitment);">
+  <!-- Halo difuso animado -->
+  <div
+    class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full opacity-10 dark:opacity-20 blur-3xl animate-[pulseGradient_16s_ease-in-out_infinite]"
+    style="background: rgba(var(--color-primary-rgb),0.12);"
+  ></div>
+
+  <div class="container mx-auto px-4 relative z-10 text-center">
+    <!-- Encabezado -->
+    <div class="fade-up mb-12">
+      <h2 class="text-4xl sm:text-5xl font-extrabold text-[var(--text-default)] leading-tight">
+        {commitmentData.title}
+      </h2>
+      <p class="mt-4 text-lg sm:text-xl text-[var(--muted)] max-w-2xl mx-auto">
+        {commitmentData.subtitle}
+      </p>
+    </div>
+
+    <!-- Puntos destacados -->
+    <div class="grid gap-8 md:grid-cols-3 mb-12">
+      {commitmentData.points.map((point, i) => (
+        <div
+          class="fade-up bg-[var(--bg-default)] p-6 rounded-2xl shadow-md border border-[var(--color-primary)] transition-all duration-500 transform hover:-translate-y-2 hover:scale-105 hover:rotate-1 hover:shadow-xl"
+          style={`animation-delay:${i*150}ms`}
+        >
+          <p class="text-[var(--text-default)] font-medium">{point}</p>
+        </div>
+      ))}
+    </div>
+
+    <!-- CTA -->
+    <div class="fade-up" style="animation-delay:500ms">
+      <a
+        href={commitmentData.buttonLink}
+        class="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-xl font-semibold shadow-lg transition-all duration-300
+               bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-600)] 
+               hover:shadow-[0_8px_24px_rgba(var(--color-primary-rgb),0.3)]
+               focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[rgba(var(--color-primary-rgb),0.3)]"
+      >
+        {commitmentData.buttonText}
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Tono de fondo distinto */
+  :root { --bg-commitment: #e9f0f7; } /* modo claro */
+  html.dark { --bg-commitment: #192734; } /* modo oscuro */
+
+  /* Animaciones */
+  @keyframes fadeUp { 0% { opacity:0; transform:translateY(40px); } 100% { opacity:1; transform:translateY(0); } }
+  .fade-up { opacity:0; animation: fadeUp 1s ease forwards; }
+
+  @keyframes pulseGradient { 0%,100% { transform: scale(1); opacity:0.5; } 50% { transform: scale(1.05); opacity:0.8; } }
+</style>

@@ -1,0 +1,33 @@
+---
+import { Clock } from "lucide-react";
+
+const lastUpdated = "28 de Octubre de 2025";
+const note =
+  "Estos términos pueden actualizarse periódicamente. Te recomendamos revisarlos con frecuencia para mantenerte informado sobre cualquier cambio.";
+---
+
+<section class="py-14 text-center bg-[var(--bg-default)] text-[var(--text-default)] relative">
+  <div class="container">
+    <!-- Fondo decorativo sutil -->
+    <div class="absolute inset-0 -z-10 bg-gradient-to-t from-[var(--color-primary)]/5 via-transparent"></div>
+
+    <!-- Contenido -->
+    <div class="inline-flex items-center justify-center gap-3 px-6 py-3 bg-[var(--bg-default)]/70 backdrop-blur-sm rounded-xl shadow-md border border-[var(--border-default)] fade-up">
+      <Clock className="w-6 h-6 text-[var(--color-primary)]" />
+      
+      <div class="text-left">
+        <p class="text-sm uppercase tracking-wide text-[var(--muted)]">Última actualización</p>
+        <p class="text-lg font-semibold text-[var(--text-default)]">{lastUpdated}</p>
+      </div>
+    </div>
+
+    <p class="max-w-2xl mx-auto mt-6 text-[var(--muted)] text-base fade-up" style="animation-delay: 0.2s;">
+      {note}
+    </p>
+
+    <!-- Línea decorativa inferior -->
+    <div class="mt-10 flex justify-center">
+      <span class="inline-block w-32 h-1 rounded-full bg-[var(--color-primary)] blur-in"></span>
+    </div>
+  </div>
+</section>

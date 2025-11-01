@@ -1,0 +1,109 @@
+---
+const historyData = {
+  foundingYear: 1998,
+  evolution: [
+    {
+      year: 2005,
+      title: "Expansión regional",
+      description: "Abrimos nuevas sedes para ofrecer servicios más cerca de nuestros pacientes."
+    },
+    {
+      year: 2012,
+      title: "Modernización tecnológica",
+      description: "Implementamos equipos de última generación para análisis más precisos."
+    },
+    {
+      year: 2020,
+      title: "Certificación internacional",
+      description: "Obtenemos acreditación de calidad ISO 15189, destacando nuestra excelencia."
+    }
+  ],
+  image: "../../public/images/blog1.png" // opcional
+};
+---
+<section
+  class="relative py-28 md:py-36 transition-colors duration-500"
+  style="
+    background-color: var(--bg-history);
+  "
+>
+  <div class="container mx-auto px-4 relative z-10">
+    <!-- Encabezado de sección -->
+    <div class="text-center mb-16 fade-up">
+      <h2 class="text-4xl sm:text-5xl font-extrabold text-[var(--text-default)] leading-tight">
+        Nuestra historia
+      </h2>
+      <p class="mt-4 text-lg sm:text-xl text-[var(--muted)] max-w-2xl mx-auto">
+        Desde nuestros inicios hasta la actualidad, cada paso ha sido guiado por la excelencia y la innovación.
+      </p>
+    </div>
+
+    <!-- Contenido de la historia -->
+    <div class="relative grid gap-12 md:grid-cols-2 items-center">
+      {historyData.image && (
+        <div class="fade-up" style="animation-delay: 150ms">
+          <img
+            src={historyData.image}
+            alt="Historia del laboratorio"
+            class="rounded-2xl shadow-lg border border-[var(--color-primary)]"
+            loading="lazy"
+          />
+        </div>
+      )}
+
+      <div class="space-y-10">
+        <div class="flex items-start space-x-6 fade-up" style="animation-delay: 200ms">
+          <div class="text-[var(--color-primary)] font-extrabold text-3xl md:text-4xl min-w-[80px]">
+            {historyData.foundingYear}
+          </div>
+          <div class="space-y-2">
+            <h3 class="text-xl font-semibold text-[var(--text-default)]">
+              Fundación
+            </h3>
+            <p class="text-[var(--muted)]">
+              Nuestro laboratorio abrió sus puertas para brindar servicios clínicos de calidad y confianza.
+            </p>
+          </div>
+        </div>
+
+        {historyData.evolution.map((item) => (
+          <div class="flex items-start space-x-6 fade-up" style="animation-delay: 250ms">
+            <div class="text-[var(--color-primary)] font-extrabold text-3xl md:text-4xl min-w-[80px]">
+              {item.year}
+            </div>
+            <div class="space-y-2">
+              <h3 class="text-xl font-semibold text-[var(--text-default)]">{item.title}</h3>
+              <p class="text-[var(--muted)]">{item.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <!-- Halo difuso para profundidad -->
+  <div
+    class="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[500px] rounded-full opacity-10 dark:opacity-20 blur-3xl animate-[pulseGradient_14s_ease-in-out_infinite]"
+    style="background: rgba(var(--color-primary-rgb),0.12);"
+  ></div>
+</section>
+
+<style>
+  :root {
+    --bg-history: #f9fafb; /* modo claro, tono ligeramente distinto */
+  }
+  html.dark {
+    --bg-history: #1f2937; /* modo oscuro, tono ligeramente distinto */
+  }
+
+  @keyframes fadeUp {
+    0% { opacity: 0; transform: translateY(40px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  .fade-up { opacity: 0; animation: fadeUp 1s ease forwards; }
+
+  @keyframes pulseGradient {
+    0%,100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.05); opacity: 0.8; }
+  }
+</style>

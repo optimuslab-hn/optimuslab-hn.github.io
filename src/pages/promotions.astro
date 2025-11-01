@@ -1,0 +1,88 @@
+---
+/**
+ * Página de Promociones - Optimus-LAB
+ */
+import PromotionsHeader from "../components/PromotionsHeader.astro";
+import PromotionCard from "../components/PromotionCard.astro";
+import PromotionCTA from "../components/PromotionCTA.astro";
+import Layout from "../layouts/Layout.astro";
+
+// ==========================
+// 🔧 CONFIGURACIÓN / VARIABLES
+// ==========================
+const siteName = "Optimus-LAB";
+const pageTitle = "Promociones y Descuentos";
+const pageSubtitle =
+  "Aprovecha nuestras promociones especiales y cuida tu salud con los mejores precios en análisis clínicos.";
+const heroImage = "/images/hero-promotions.jpg";
+
+// Promociones activas
+const promotions = [
+  {
+    title: "Perfil General de Salud",
+    desc: "Incluye hemograma, glucosa, colesterol, triglicéridos, ácido úrico y examen general de orina.",
+    price: "L. 450",
+    oldPrice: "L. 600",
+    image: "/images/promo-general.jpg",
+    tag: "¡Oferta limitada!",
+  },
+  {
+    title: "Chequeo Femenino",
+    desc: "Papanicolaou, examen de orina, hemograma, glucosa y prueba de embarazo.",
+    price: "L. 500",
+    oldPrice: "L. 700",
+    image: "/images/promo-femenino.jpg",
+    tag: "Promoción especial",
+  },
+  {
+    title: "Perfil Preoperatorio",
+    desc: "Hemograma, glucosa, creatinina, tiempos de coagulación y grupo sanguíneo.",
+    price: "L. 550",
+    oldPrice: "L. 750",
+    image: "/images/promo-preoperatorio.jpg",
+    tag: "Disponible todo el mes",
+  },
+];
+
+// Beneficios de nuestras promociones
+const benefits = [
+  {
+    icon: "🧬",
+    title: "Tecnología de Precisión",
+    desc: "Equipos automatizados para resultados más confiables y rápidos.",
+  },
+  {
+    icon: "⏱️",
+    title: "Atención Rápida",
+    desc: "Procesos ágiles para que obtengas tus resultados sin demoras.",
+  },
+  {
+    icon: "💰",
+    title: "Precios Accesibles",
+    desc: "Promociones diseñadas para cuidar tu salud y tu economía.",
+  },
+  {
+    icon: "🏥",
+    title: "Profesionales Certificados",
+    desc: "Contamos con personal técnico y médico altamente capacitado.",
+  },
+];
+
+const bannerText = "Promociones válidas hasta agotar existencias o durante la vigencia del mes en curso.";
+const ctaText = "Aprovecha hoy nuestras promociones y realiza tus análisis clínicos con confianza.";
+const ctaButton = {
+  text: "Agendar ahora",
+  link: "/contacto",
+};
+---
+
+<Layout
+  title={`${pageTitle} - ${siteName}`}
+  description="Descubre nuestras promociones en análisis clínicos y estudios de laboratorio con precios especiales. Optimus-LAB, calidad y confianza."
+>
+  <PromotionsHeader />
+
+  <PromotionCard />
+
+  <PromotionCTA />
+</Layout>

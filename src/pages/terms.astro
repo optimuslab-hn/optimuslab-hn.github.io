@@ -1,0 +1,94 @@
+---
+/**
+ * Página de Términos y Condiciones - Optimus-LAB
+ * 
+ * ✨ Instrucciones:
+ * Solo modifica las variables bajo la sección CONFIG / DATA.
+ * No es necesario tocar el HTML. 
+ */
+import TermsHeader from "../components/TermsHeader.astro";
+import Layout from "../layouts/Layout.astro";
+import TermsList from "../components/TermsList.astro";
+import TermsLastUpdated from "../components/TermsLastUpdated.astro";
+import TermsCTA from "../components/TermsCTA.astro";
+
+// ==========================
+// 🔧 CONFIG / DATA
+// ==========================
+const siteName = "Optimus-LAB";
+const pageTitle = "Términos y Condiciones";
+const pageDescription =
+  "Lee los términos y condiciones del servicio de Optimus-LAB. Conoce tus derechos, responsabilidades y nuestras políticas de uso.";
+
+const lastUpdated = "Octubre 2025";
+
+// Secciones de los Términos (puedes agregar, reordenar o eliminar)
+const termsSections = [
+  {
+    title: "1. Aceptación de los Términos",
+    content: `
+      Al acceder y utilizar el sitio web de ${siteName}, usted acepta cumplir con los presentes Términos y Condiciones, así como con todas las leyes y regulaciones aplicables. 
+      Si no está de acuerdo con alguno de estos términos, se le prohíbe el uso o acceso a este sitio.
+    `,
+  },
+  {
+    title: "2. Uso del Sitio Web",
+    content: `
+      El contenido de este sitio tiene fines informativos y está destinado a brindar orientación general sobre los servicios ofrecidos por ${siteName}. 
+      Queda prohibido modificar, copiar o reutilizar cualquier contenido sin autorización previa por escrito.
+    `,
+  },
+  {
+    title: "3. Propiedad Intelectual",
+    content: `
+      Todos los derechos de propiedad intelectual del sitio, incluyendo textos, imágenes, logotipos, íconos y diseño gráfico, pertenecen a ${siteName} o sus licenciantes. 
+      Queda prohibido su uso sin el consentimiento correspondiente.
+    `,
+  },
+  {
+    title: "4. Privacidad y Protección de Datos",
+    content: `
+      ${siteName} garantiza la confidencialidad de los datos personales proporcionados por los usuarios. 
+      La recopilación y uso de esta información se realiza conforme a nuestra Política de Privacidad, disponible en este sitio web.
+    `,
+  },
+  {
+    title: "5. Limitación de Responsabilidad",
+    content: `
+      ${siteName} no se hace responsable de los daños o perjuicios que pudieran derivarse del uso de la información o servicios ofrecidos en el sitio. 
+      La información puede actualizarse o modificarse en cualquier momento sin previo aviso.
+    `,
+  },
+  {
+    title: "6. Enlaces a Terceros",
+    content: `
+      Este sitio puede incluir enlaces a páginas externas. ${siteName} no se hace responsable por el contenido o las políticas de privacidad de dichos sitios.
+      El acceso a páginas externas se realiza bajo su propio riesgo.
+    `,
+  },
+  {
+    title: "7. Modificaciones a los Términos",
+    content: `
+      ${siteName} se reserva el derecho de modificar los presentes Términos y Condiciones en cualquier momento. 
+      Los cambios entrarán en vigor una vez publicados en esta página.
+    `,
+  },
+  {
+    title: "8. Contacto",
+    content: `
+      Si tiene preguntas o inquietudes sobre estos Términos, puede comunicarse con nosotros a través de nuestro formulario de contacto o por correo electrónico a:
+      <a href="mailto:info@optimuslab.com" class="text-blue-600 underline hover:text-blue-800">info@optimuslab.com</a>.
+    `,
+  },
+];
+---
+
+<Layout title={`${pageTitle} - ${siteName}`} description={pageDescription}>
+<TermsHeader />
+
+<TermsList />
+
+<TermsLastUpdated />
+
+<TermsCTA />
+</Layout>

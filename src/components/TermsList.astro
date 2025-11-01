@@ -1,0 +1,63 @@
+---
+const sectionTitle = "Detalles Legales";
+const sectionSubtitle =
+  "A continuación se presentan los términos que definen las responsabilidades, derechos y obligaciones entre el usuario y nuestra organización.";
+
+// Data estructurada — fácil de reemplazar por JSON
+const terms = [
+  {
+    title: "1. Aceptación de los Términos",
+    content: `Al acceder y utilizar nuestros servicios, usted acepta cumplir con los presentes términos y condiciones. Si no está de acuerdo con alguna parte, le recomendamos no utilizar la plataforma.`,
+  },
+  {
+    title: "2. Modificaciones del Servicio",
+    content: `Nos reservamos el derecho de modificar o discontinuar el servicio en cualquier momento, con o sin previo aviso. Los cambios serán efectivos una vez publicados en nuestro sitio web.`,
+  },
+  {
+    title: "3. Propiedad Intelectual",
+    content: `Todo el contenido, diseño, logotipos y materiales asociados están protegidos por derechos de propiedad intelectual. Está prohibida su reproducción o distribución sin autorización previa.`,
+  },
+  {
+    title: "4. Privacidad y Protección de Datos",
+    content: `Respetamos su privacidad y protegemos sus datos personales conforme a las leyes vigentes. Consulte nuestra Política de Privacidad para más información.`,
+  },
+  {
+    title: "5. Limitación de Responsabilidad",
+    content: `No seremos responsables por daños directos o indirectos derivados del uso o imposibilidad de uso de nuestros servicios, salvo disposición legal en contrario.`,
+  },
+];
+---
+
+<section class="py-16 bg-[var(--bg-default)] text-[var(--text-default)]">
+  <div class="container">
+    <!-- Encabezado de la sección -->
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold mb-3 fade-up">
+        {sectionTitle}
+      </h2>
+      <p class="max-w-2xl mx-auto text-[var(--muted)] text-lg fade-up" style="animation-delay: 0.15s;">
+        {sectionSubtitle}
+      </p>
+      <div class="mt-6 flex justify-center">
+        <span class="inline-block w-20 h-1 rounded-full bg-[var(--color-primary)] blur-in"></span>
+      </div>
+    </div>
+
+    <!-- Lista de términos -->
+    <div class="space-y-10">
+      {terms.map((term, index) => (
+        <article
+          class="card border border-[var(--border-default)] fade-up"
+          style={`animation-delay: ${0.1 * index}s`}
+        >
+          <h3 class="text-2xl font-semibold mb-3 text-[var(--color-primary)]">
+            {term.title}
+          </h3>
+          <p class="text-[var(--text-default)] leading-relaxed">
+            {term.content}
+          </p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

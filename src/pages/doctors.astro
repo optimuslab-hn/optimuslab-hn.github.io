@@ -1,0 +1,84 @@
+---
+/**
+ * Página de Doctores - Optimus-LAB
+ */
+import DoctorCard from "../components/DoctorCard.astro";
+import DoctorHeader from "../components/DoctorHeader.astro";
+import DoctorsCTA from "../components/DoctorsCTA.astro";
+import Layout from "../layouts/Layout.astro";
+
+// ==========================
+// 🔧 CONFIGURACIÓN / VARIABLES
+// ==========================
+const siteName = "Optimus-LAB";
+const pageTitle = "Nuestro Equipo Médico";
+const pageSubtitle =
+  "Conoce a los profesionales que respaldan cada diagnóstico. Experiencia, ética y precisión en cada resultado.";
+const heroImage = "/images/hero-doctors.jpg";
+
+const introText =
+  "En Optimus-LAB contamos con un equipo multidisciplinario de profesionales en salud, comprometidos con brindar resultados confiables y atención humana. Cada miembro de nuestro equipo contribuye a garantizar la calidad y precisión en nuestros análisis clínicos.";
+
+// Doctores / especialistas
+const doctors = [
+  {
+    name: "Dra. Ana Martínez",
+    specialty: "Directora Médica - Especialista en Patología Clínica",
+    image: "/images/doctors/ana-martinez.jpg",
+  },
+  {
+    name: "Dr. Carlos López",
+    specialty: "Jefe de Laboratorio - Bioquímico Clínico",
+    image: "/images/doctors/carlos-lopez.jpg",
+  },
+  {
+    name: "Lic. María Fernández",
+    specialty: "Tecnóloga Médica - Procesamiento de Muestras",
+    image: "/images/doctors/maria-fernandez.jpg",
+  },
+  {
+    name: "Lic. José Ramírez",
+    specialty: "Técnico de Laboratorio - Área Hematología",
+    image: "/images/doctors/jose-ramirez.jpg",
+  },
+];
+
+// Principios del equipo
+const principles = [
+  {
+    icon: "🧬",
+    title: "Rigor Científico",
+    desc: "Cada resultado es obtenido bajo estrictos protocolos de calidad y control.",
+  },
+  {
+    icon: "🤝",
+    title: "Compromiso Ético",
+    desc: "Actuamos con responsabilidad, respeto y transparencia en cada proceso.",
+  },
+  {
+    icon: "💡",
+    title: "Actualización Continua",
+    desc: "Nos mantenemos en formación constante para incorporar las mejores prácticas.",
+  },
+  {
+    icon: "❤️",
+    title: "Vocación de Servicio",
+    desc: "Nuestro trabajo está orientado al bienestar de cada paciente.",
+  },
+];
+
+const ctaText = "Confía en nuestros profesionales para tus análisis clínicos. Tu salud está en manos expertas.";
+const ctaButton = {
+  text: "Agendar una cita",
+  link: "/contacto",
+};
+---
+
+<Layout
+  title={`${pageTitle} - ${siteName}`}
+  description="Conoce al equipo médico de Optimus-LAB. Profesionales especializados en diagnóstico clínico con experiencia, ética y compromiso."
+>
+<DoctorHeader />
+<DoctorCard />
+<DoctorsCTA />
+</Layout>

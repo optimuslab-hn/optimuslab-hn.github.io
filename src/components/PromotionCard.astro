@@ -1,0 +1,167 @@
+---
+const promotionsSectionData = {
+  title: "Promociones Especiales",
+  subtitle:
+    "Aprovecha nuestras ofertas limitadas y disfruta de los mejores beneficios exclusivos para ti.",
+  promotions: [
+    {
+      id: 1,
+      title: "Chequeo General Completo",
+      description:
+        "Obtén un examen clínico integral con resultados rápidos y atención personalizada.",
+      image: "../../public/images/blog1.png",
+      validUntil: "30 de noviembre de 2025",
+      benefit: "20% OFF",
+      link: "#",
+    },
+    {
+      id: 2,
+      title: "Análisis de Sangre Premium",
+      description:
+        "Incluye hemograma completo, perfil lipídico y evaluación metabólica avanzada.",
+      image: "../../public/images/blog2.png",
+      validUntil: "15 de diciembre de 2025",
+      benefit: "15% OFF",
+      link: "#",
+    },
+    {
+      id: 3,
+      title: "Control de Diabetes",
+      description:
+        "Monitoreo completo con asesoría médica y plan de control personalizado.",
+      image: "../../public/images/blog3.png",
+      validUntil: "31 de diciembre de 2025",
+      benefit: "2x1",
+      link: "#",
+    },
+    {
+      id: 4,
+      title: "Examen Cardiológico",
+      description:
+        "Chequeo avanzado con electrocardiograma y evaluación de presión arterial.",
+      image: "../../public/images/blog1.png",
+      validUntil: "10 de enero de 2026",
+      benefit: "10% OFF",
+      link: "#",
+    },
+    {
+      id: 5,
+      title: "Prueba de Alergias",
+      description:
+        "Descubre tus principales alérgenos con un test preciso y rápido.",
+      image: "../../public/images/blog1.png",
+      validUntil: "5 de enero de 2026",
+      benefit: "25% OFF",
+      link: "#",
+    },
+    {
+      id: 6,
+      title: "Evaluación Nutricional",
+      description:
+        "Incluye valoración corporal y plan de alimentación personalizado.",
+      image: "../../public/images/blog1.png",
+      validUntil: "31 de enero de 2026",
+      benefit: "30% OFF",
+      link: "#",
+    },
+  ],
+};
+---
+
+<section class="relative py-20 md:py-28 bg-[var(--bg-default)] transition-colors duration-500">
+  <!-- Encabezado -->
+  <div class="container text-center mb-16 px-4">
+    <h2
+      class="text-4xl sm:text-5xl font-extrabold text-[var(--text-default)] tracking-tight fade-up"
+    >
+      {promotionsSectionData.title}
+    </h2>
+    <p
+      class="mt-4 text-lg sm:text-xl text-[var(--muted)] max-w-2xl mx-auto fade-up"
+      style="animation-delay: 150ms"
+    >
+      {promotionsSectionData.subtitle}
+    </p>
+  </div>
+
+  <!-- Grid de Cards -->
+  <div
+    class={`container grid gap-10 px-4 ${
+      promotionsSectionData.promotions.length === 1
+        ? "place-items-center"
+        : "sm:grid-cols-2 lg:grid-cols-3"
+    }`}
+  >
+    {promotionsSectionData.promotions.map((promo) => (
+      <article
+        class="group relative bg-[var(--color-card-bg)] border border-transparent dark:border-white/10 rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl hover:-translate-y-1 transition-all duration-500"
+      >
+        <!-- Imagen -->
+        <div class="relative overflow-hidden">
+          <img
+            src={promo.image}
+            alt={promo.title}
+            class="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-105"
+            loading="lazy"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-700"
+          ></div>
+          <!-- Etiqueta de beneficio -->
+          <span
+            class="absolute top-4 right-4 bg-[var(--color-primary)] text-white text-xs font-semibold px-3 py-1 rounded-full shadow-sm backdrop-blur-md"
+          >
+            {promo.benefit}
+          </span>
+        </div>
+
+        <!-- Contenido -->
+        <div class="p-6 text-center space-y-4">
+          <h3
+            class="text-2xl font-bold text-[var(--text-default)] group-hover:text-[var(--color-primary)] transition-colors duration-300"
+          >
+            {promo.title}
+          </h3>
+          <p class="text-[var(--muted)] text-sm leading-relaxed">
+            {promo.description}
+          </p>
+
+          <p class="text-xs text-[var(--muted)]">
+            Válido hasta <strong>{promo.validUntil}</strong>
+          </p>
+
+          <a
+            href={promo.link}
+            class="relative inline-flex items-center justify-center gap-2 mt-4 px-6 py-2 rounded-lg font-semibold text-white 
+            bg-[var(--color-primary)] shadow-md transition-all duration-300
+            hover:from-[var(--color-primary-500)] hover:to-[var(--color-primary-700)] hover:shadow-[0_0_12px_rgba(var(--color-primary-rgb),0.4)]
+            hover:text-white focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2
+            after:absolute after:inset-0 after:rounded-lg after:bg-gradient-to-r after:from-white/10 after:to-transparent after:opacity-0 hover:after:opacity-100 after:transition-opacity after:duration-300"
+          >
+            Ver más
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </a>
+        </div>
+
+        <!-- Borde degradado sutil (efecto premium) -->
+        <div
+          class="absolute inset-0 rounded-2xl pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+          style="background: linear-gradient(135deg, rgba(var(--color-primary-rgb), 0.25), transparent 60%);"
+        ></div>
+      </article>
+    ))}
+  </div>
+</section>

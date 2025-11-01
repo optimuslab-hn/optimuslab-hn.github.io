@@ -1,0 +1,60 @@
+---
+const promotionsHeaderData = {
+  title: "Promociones y campañas de salud",
+  subtitle: "Aprovecha nuestras ofertas especiales en análisis clínicos",
+};
+---
+
+<section
+  class="relative overflow-hidden py-20 md:py-28 transition-colors duration-700
+    bg-gradient-to-br from-white via-gray-50 to-gray-100 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950"
+>
+  <!-- 🌌 Glows decorativos -->
+  <div class="absolute inset-0 -z-10">
+    <div class="absolute top-1/6 left-10 w-[600px] h-[600px] rounded-full
+      bg-[rgba(var(--color-primary-rgb),0.12)] blur-3xl animate-pulseGlow"></div>
+    <div class="absolute bottom-10 right-16 w-[500px] h-[500px] rounded-full
+      bg-[rgba(var(--color-primary-rgb),0.08)] blur-2xl animate-slowFloat"></div>
+    <div class="absolute top-1/3 right-20 w-[300px] h-[300px] rounded-full
+      bg-[rgba(var(--color-primary-rgb),0.06)] blur-2xl animate-slowFloat"></div>
+  </div>
+
+  <!-- 📣 Contenido principal -->
+  <div class="container mx-auto px-4 text-center fade-up space-y-6 max-w-3xl">
+    <h1 class="text-5xl sm:text-6xl md:text-7xl font-extrabold text-gray-900 dark:text-white leading-tight tracking-tight">
+      {promotionsHeaderData.title}
+    </h1>
+    <p class="text-lg sm:text-xl md:text-2xl font-light text-gray-700 dark:text-gray-300 leading-relaxed fade-up"
+       style="animation-delay: 150ms">
+      {promotionsHeaderData.subtitle}
+    </p>
+  </div>
+</section>
+
+<style>
+  /* Animaciones globales reutilizables */
+  @keyframes slowFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+
+  @keyframes pulseGlow {
+    0%, 100% { opacity: 0.4; transform: scale(1); }
+    50% { opacity: 0.9; transform: scale(1.1); }
+  }
+
+  .animate-slowFloat { animation: slowFloat 12s ease-in-out infinite; }
+  .animate-pulseGlow { animation: pulseGlow 8s ease-in-out infinite; }
+
+  .fade-up { opacity: 0; animation: fadeUp 1s ease forwards; }
+  @keyframes fadeUp { 0% { opacity: 0; transform: translateY(40px); } 100% { opacity: 1; transform: translateY(0); } }
+
+  /* Soporte para motion-reduced */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+</style>

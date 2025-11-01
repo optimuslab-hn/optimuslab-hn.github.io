@@ -1,0 +1,120 @@
+---
+/**
+ * contact.astro
+ *
+ * 📄 Página de contacto de OptimusLab
+ * Incluye:
+ * - Formulario de contacto profesional
+ * - Información de contacto alternativa
+ * - Mapa de ubicación (opcional)
+ *
+ * 🧩 Características:
+ * - Diseño limpio, moderno y responsive
+ * - Accesible: etiquetas, roles y enfoque de teclado
+ * - Documentado y escalable
+ *
+ * 📅 Última actualización: 12/10/2025
+ * 👨‍💻 Autor: Chelito Maradiaga
+ */
+
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="OPTIMUS-LAB | Contacto"
+  description="Ponte en contacto con OPTIMUS - LAB. Escríbenos o visítanos. Atención profesional y resultados confiables."
+>
+  <section class="container mx-auto px-6 py-16">
+    <div class="text-center mb-12">
+      <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-4">
+        Contáctanos
+      </h1>
+      <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+        En OPTIMUS-LAB estamos para ayudarte. Completa el formulario y nos pondremos en contacto contigo.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      
+      <!-- 📝 FORMULARIO DE CONTACTO -->
+      <form class="bg-white shadow-lg rounded-lg p-8 flex flex-col gap-6">
+        <label class="flex flex-col">
+          <span class="text-gray-700 font-medium mb-1">Nombre completo</span>
+          <input
+            type="text"
+            name="name"
+            placeholder="Tu nombre"
+            class="border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition"
+            required
+          />
+        </label>
+
+        <label class="flex flex-col">
+          <span class="text-gray-700 font-medium mb-1">Correo electrónico</span>
+          <input
+            type="email"
+            name="email"
+            placeholder="ejemplo@correo.com"
+            class="border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition"
+            required
+          />
+        </label>
+
+        <label class="flex flex-col">
+          <span class="text-gray-700 font-medium mb-1">Teléfono</span>
+          <input
+            type="tel"
+            name="phone"
+            placeholder="+504 0000-0000"
+            class="border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition"
+          />
+        </label>
+
+        <label class="flex flex-col">
+          <span class="text-gray-700 font-medium mb-1">Mensaje</span>
+          <textarea
+            name="message"
+            rows="5"
+            placeholder="Escribe tu mensaje..."
+            class="border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition"
+            required
+          ></textarea>
+        </label>
+
+        <button
+          type="submit"
+          class="bg-primary text-white px-6 py-3 rounded-full font-medium shadow hover:bg-primary/90 transition"
+        >
+          Enviar mensaje
+        </button>
+      </form>
+
+      <!-- 📞 INFORMACIÓN DE CONTACTO -->
+      <div class="flex flex-col gap-8">
+        <div>
+          <h2 class="text-2xl font-semibold text-gray-900 mb-4">Información de contacto</h2>
+          <ul class="text-gray-700 space-y-2">
+            <li>📍 Dirección: Av. Central, Choluteca, Honduras</li>
+            <li>📞 Teléfono: +504 9988-7766</li>
+            <li>✉️ Correo: contacto@optimuslab.com</li>
+            <li>⏰ Horario: Lunes a Viernes 07:00 - 18:00, Sábado 08:00 - 12:00</li>
+          </ul>
+        </div>
+
+        <!-- 🌍 MAPA EMBED (OPCIONAL) -->
+        <div class="rounded-lg overflow-hidden shadow-lg">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3890.0000000000005!2d-87.00000000000001!3d13.000000000000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f5f000000000001%3A0x0000000000000000!2sCholuteca%2C%20Honduras!5e0!3m2!1ses!2sus!4v0000000000000"
+            width="100%"
+            height="300"
+            class="border-0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Mapa de ubicación de OptimusLab"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

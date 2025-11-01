@@ -1,0 +1,61 @@
+---
+const sectionTitle = "Detalles de nuestra política de privacidad";
+const sectionSubtitle =
+  "A continuación te explicamos cómo recopilamos, usamos y protegemos tu información personal para garantizar transparencia y confianza.";
+
+// Data estructurada — lista de secciones de privacidad
+const privacyItems = [
+  {
+    title: "1. Información que recopilamos",
+    content: `Podemos recopilar datos como tu nombre, correo electrónico, teléfono y registros de interacción con nuestros servicios. Solo usamos esta información para mejorar la calidad de nuestros servicios.`,
+  },
+  {
+    title: "2. Uso de la información",
+    content: `Tu información se utiliza exclusivamente para fines relacionados con la prestación de nuestros servicios, incluyendo comunicación sobre resultados y mejoras en la atención.`,
+  },
+  {
+    title: "3. Protección de datos",
+    content: `Implementamos medidas de seguridad físicas, electrónicas y administrativas para proteger tu información contra accesos no autorizados, pérdida o divulgación.`,
+  },
+  {
+    title: "4. Compartir información con terceros",
+    content: `No vendemos tu información a terceros. Solo compartimos datos con proveedores de confianza cuando es estrictamente necesario para el funcionamiento de nuestros servicios.`,
+  },
+  {
+    title: "5. Derechos de los usuarios",
+    content: `Puedes solicitar acceso, corrección o eliminación de tus datos personales en cualquier momento, en cumplimiento con la normativa vigente sobre protección de datos.`,
+  },
+];
+---
+
+<section class="py-16 bg-[var(--bg-default)] text-[var(--text-default)]">
+  <div class="container">
+    <!-- Encabezado de la sección -->
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold mb-3 fade-up">
+        {sectionTitle}
+      </h2>
+      <p class="max-w-2xl mx-auto text-[var(--muted)] text-lg fade-up" style="animation-delay: 0.15s;">
+        {sectionSubtitle}
+      </p>
+      <div class="mt-6 flex justify-center">
+        <span class="inline-block w-20 h-1 rounded-full bg-[var(--color-primary)] blur-in"></span>
+      </div>
+    </div>
+
+    <!-- Lista de secciones -->
+    <div class="space-y-10">
+      {privacyItems.map((item, index) => (
+        <article
+          class="card border border-[var(--border-default)] fade-up"
+          style={`animation-delay: ${0.1 * index}s`}
+        >
+          <h3 class="text-2xl font-semibold mb-3 text-[var(--color-primary)]">
+            {item.title}
+          </h3>
+          <p class="text-[var(--text-default)] leading-relaxed">{item.content}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

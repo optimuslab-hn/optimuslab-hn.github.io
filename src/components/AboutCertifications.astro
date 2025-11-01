@@ -1,0 +1,53 @@
+---
+const certificationsData = {
+  title: "Certificaciones y licencias",
+  subtitle: "Nuestro laboratorio cumple con los más altos estándares de calidad y regulación nacional e internacional.",
+  certifications: [
+    { name: "ISO 9001:2015", logo: "../../public/images/blog1.png" },
+    { name: "Buenas Prácticas de Laboratorio", logo: "../../public/images/blog1.png" },
+    { name: "Licencia Sanitaria Nacional", logo: "../../public/images/blog1.png" }
+  ]
+};
+---
+
+<section class="relative py-28 md:py-36 transition-colors duration-500 overflow-hidden" style="background-color: var(--bg-certifications);">
+  <!-- Halo difuso animado -->
+  <div
+    class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full opacity-10 dark:opacity-20 blur-3xl animate-[pulseGradient_20s_ease-in-out_infinite]"
+    style="background: rgba(var(--color-primary-rgb),0.12);"
+  ></div>
+
+  <div class="container mx-auto px-4 relative z-10 text-center">
+    <!-- Encabezado -->
+    <div class="fade-up mb-16">
+      <h2 class="text-4xl sm:text-5xl font-extrabold text-[var(--text-default)] leading-tight">
+        {certificationsData.title}
+      </h2>
+      <p class="mt-4 text-lg sm:text-xl text-[var(--muted)] max-w-2xl mx-auto">
+        {certificationsData.subtitle}
+      </p>
+    </div>
+
+    <!-- Logos / Certificaciones -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12 items-center justify-items-center">
+      {certificationsData.certifications.map((cert, i) => (
+        <div class="fade-up bg-[var(--bg-default)] p-6 rounded-2xl shadow-md border border-[var(--color-primary)] transition-all duration-500 transform hover:-translate-y-2 hover:scale-105 hover:rotate-1 hover:shadow-xl" style={`animation-delay:${i*150}ms`}>
+          <img src={cert.logo} alt={cert.name} class="w-24 h-24 mx-auto mb-4 object-contain transition-transform duration-500 group-hover:scale-110" />
+          <p class="text-[var(--text-default)] font-medium">{cert.name}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Tono de fondo distinto */
+  :root { --bg-certifications: #f0f4f8; } /* modo claro */
+  html.dark { --bg-certifications: #192231; } /* modo oscuro */
+
+  /* Animaciones */
+  @keyframes fadeUp { 0% { opacity:0; transform:translateY(40px); } 100% { opacity:1; transform:translateY(0); } }
+  .fade-up { opacity:0; animation: fadeUp 1s ease forwards; }
+
+  @keyframes pulseGradient { 0%,100% { transform: scale(1); opacity:0.5; } 50% { transform: scale(1.05); opacity:0.8; } }
+</style>
