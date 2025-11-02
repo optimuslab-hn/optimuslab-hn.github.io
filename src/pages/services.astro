@@ -6,6 +6,7 @@ import ServicesHeader from "../components/ServicesHeader.astro";
 import ServiceCard from "../components/ServiceCard.astro";
 import ServiceCTA from "../components/ServiceCTA.astro";
 import ServiceAdvantages from "../components/ServiceAdvantages.astro";
+import HeroService from "../components/HeroService.astro";
 
 // VENTAJAS
 const advantages = [
@@ -18,6 +19,11 @@ const advantages = [
 
 <Layout title="Servicios de Laboratorio | OptimusLab" description="Catálogo de análisis clínicos, química sanguínea, hematología y más. Resultados confiables para tu bienestar.">
 
+  <HeroService />
+    title="Servicios de Laboratorio Clínico"
+    subtitle="Análisis confiables para tu bienestar"
+    image="/images/hero-laboratory.jpg"
+    alt="Imagen de laboratorio clínico con equipo moderno"
   <ServicesHeader />
   <!-- <ServiceFilter /> -->
 
