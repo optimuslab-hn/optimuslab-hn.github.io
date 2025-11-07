@@ -13,7 +13,7 @@ const siteName = "Optimus-LAB";
 const pageTitle = "Blog";
 const pageDescription =
   "Artículos, guías y noticias sobre diagnóstico clínico, prevención y salud. Mantente informado con Optimus-LAB.";
-const heroImage = "/images/hero-blog.jpg";
+const heroImage = "/images/blog1.png";
 
 // Control de paginación (renderiza la primera página con estos valores)
 const postsPerPage = 6;
@@ -24,11 +24,11 @@ const currentPage = 1; // cambiar si se generan páginas estáticas separadas
 const posts = [
   {
     title: "Importancia del Hemograma en la Atención Primaria",
-    slug: "importancia-hemograma",
+    slug: "",
     excerpt: "El hemograma es una herramienta esencial... aprende cuándo solicitarlo y cómo interpretar resultados básicos.",
     date: "2025-09-02",
     author: "Dra. Ana Martínez",
-    image: "/images/posts/hemograma.jpg",
+    image: "/images/blog1.png",
     alt: "Microscopio y resultados hemograma",
     category: "Hematología",
     tags: ["hemograma", "hematología", "diagnóstico"],
@@ -37,12 +37,12 @@ const posts = [
   },
   {
     title: "Guía rápida: Preparación para exámenes de laboratorio",
-    slug: "preparacion-examenes",
+    slug: "",
     excerpt:
       "Consejos prácticos para preparar muestras y obtener resultados precisos en tus análisis de sangre y orina.",
     date: "2025-08-18",
     author: "Lic. María Fernández",
-    image: "/images/posts/preparacion.jpg",
+    image: "/images/blog2.png",
     alt: "Instrucciones preparación exámenes",
     category: "Guías",
     tags: ["preparación", "muestras", "paciente"],
@@ -51,12 +51,12 @@ const posts = [
   },
   {
     title: "Colesterol: ¿cuándo preocuparse?",
-    slug: "colesterol-cuando-preocuparse",
+    slug: "",
     excerpt:
       "Entiende los niveles de colesterol, factores de riesgo y medidas preventivas basadas en evidencia.",
     date: "2025-07-10",
     author: "Dr. Carlos López",
-    image: "/images/posts/colesterol.jpg",
+    image: "/images/blog3.png",
     alt: "Resultados de colesterol",
     category: "Bioquímica",
     tags: ["colesterol", "salud cardiovascular"],
@@ -70,7 +70,7 @@ const posts = [
       "Cómo la automatización mejora la precisión, reduce tiempos y minimiza errores humanos en el laboratorio.",
     date: "2025-06-25",
     author: "Editorial Optimus-LAB",
-    image: "/images/posts/automatizacion.jpg",
+    image: "/images/blog4.png",
     alt: "Equipo automatizado laboratorio",
     category: "Tecnología",
     tags: ["automatización", "equipos", "calidad"],
@@ -79,12 +79,12 @@ const posts = [
   },
   {
     title: "Chequeos preventivos para mujeres: pruebas recomendadas",
-    slug: "chequeos-femeninos",
+    slug: "",
     excerpt:
       "Lista de exámenes preventivos para diferente etapas de la vida femenina y su frecuencia recomendada.",
     date: "2025-05-12",
     author: "Dra. Ana Martínez",
-    image: "/images/posts/chequeo-femenino.jpg",
+    image: "/images/blog1.png",
     alt: "Mujer en consulta médica",
     category: "Prevención",
     tags: ["prevención", "mujer", "salud"],
@@ -98,7 +98,7 @@ const posts = [
       "Creatinina, BUN y otros marcadores: qué representan y cuándo derivar al especialista.",
     date: "2025-04-04",
     author: "Dr. Carlos López",
-    image: "/images/posts/renales.jpg",
+    image: "/images/blog2.png",
     alt: "Resultados pruebas renales",
     category: "Nefrología",
     tags: ["riñón", "creatinina", "BUN"],
@@ -138,7 +138,7 @@ const pagePosts = posts.slice(startIndex, endIndex);
         <a href="/blog" class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-full text-sm">
           Ver todas las entradas
         </a>
-        <a href="/contacto" class="inline-flex items-center gap-2 bg-white text-blue-900 px-4 py-2 rounded-full font-semibold">
+        <a href="/contact" class="inline-flex items-center gap-2 bg-white text-blue-900 px-4 py-2 rounded-full font-semibold">
           Contáctanos
         </a>
       </div>
@@ -262,7 +262,7 @@ const pagePosts = posts.slice(startIndex, endIndex);
         <div class="bg-white rounded-2xl shadow p-4 text-center">
           <h4 class="text-sm font-semibold text-gray-800 mb-2">¿Dudas?</h4>
           <p class="text-sm text-gray-600 mb-4">Contáctanos para más información sobre pruebas y servicios.</p>
-          <a href="/contacto" class="inline-block bg-blue-600 text-white px-4 py-2 rounded-full text-sm">Contactar</a>
+          <a href="/contact" class="inline-block bg-blue-600 text-white px-4 py-2 rounded-full text-sm">Contactar</a>
         </div>
       </aside>
     </div>
